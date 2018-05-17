@@ -88,3 +88,72 @@ sol ) 자주 사용되는 숫자인 256까지는 주소값이 같게 설정되�
 
 
 ````
+
+### (3) foramt함수
+
+````javascript
+
+print( "I eat {0} apples. so I was sick for {1} days".format(10,'friday') )   #인덱스로 값 삽입
+print ( " I eat {number} apples. so I was sick for {day} days".format(number=10, day=3) )     # 변수명으로 값 삽입
+print( " I eat {0} apples. so I was sick for {day} days".format(10, day= 1000) )    #인덱스+변수명으로 값 삽입
+print( " {0:<10}".format("hi") )    # 왼쪽 정렬
+print( " {0:>10}".format("hi") )    # 오른쪽 정렬
+print( " {0:^10}".format("hi") )    # 가운데 정렬
+
+````
+
+### (4) 문자열 관련 함수들
+
+````javascript
+
+1) count함수
+
+>>> a = "kimjuwon"
+>>> a.count("j")
+1
+
+2) find함수 ( 해당 문자열이 있으면 인덱스를 반환하고 없으면 -1을 반환한다 )
+
+>>> a = "kimjuwon"
+>>> a.find("u")
+4
+
+
+3) index함수 ( 위와 마찬가지지만 없으면 -1을 반환하는 것이 아닌 오류가 발생한다. ) 
+
+>>> a = "Life is too short"
+>>> a.index('t')
+8
+>>> a.index('k')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: substring not found
+
+4) join함수
+
+>>> a=","
+>>> a.join("abcd")
+'a,b,c,d'
+
+5) upper(대문자로) / lower(소문자로) 함수
+
+>>> a = 'hi'
+>>> a.upper()
+'HI'
+
+6) strip / lstrip / rstrip 함수 ( 공백지우기 )
+
+>>> a = " hi "
+>>> a.lstript()       # 왼쪽공백지우기
+'hi  '
+
+
+7) replace 함수
+
+>>> a = "Life is too short"
+>>> a.replcae("Life" , "Your leg")
+'Your leg is too short'
+
+
+````
+
