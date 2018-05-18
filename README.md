@@ -157,3 +157,33 @@ ValueError: substring not found
 
 ````
 
+### 3. Crawling을 위한 BeautifulSoup
+#### (1) Crawling 정의
+- Web상에 존재하는 Contents를 수집하는 작업 (프로그래밍으로 자동화 가능)
+  - HTML 페이지를 가져와서, HTML/CSS등을 파싱하고, 필요한 데이터만 추출하는 기법
+  - Open API(Rest API)를 제공하는 서비스에 Open API를 호출해서, 받은 데이터 중 필요한 데이터만 추출하는 기법
+  - Selenium등 브라우저를 프로그래밍으로 조작해서, 필요한 데이터만 추출하는 기법
+  
+#### (2) BeautifulSoup 라이브러리
+- HTML의 태그를 파싱해서 필요한 데이터만 추출하는 함수를 제공하는 라이브러리
+- 사용하기 위해서는 콘솔창 혹은 터미널 창에 # pip install bs4를 입력하여 설치해야 한다. 
+
+### (3) requests
+
+''''javascript
+ 1) reqeusts 라이브러리를 활용한 HTML 페이지 요청 
+# 1-1) res 객체에 HTML 데이터가 저장되고, res.content로 데이터를 추출할 수 있음
+res = requests.get('http://v.media.daum.net/v/20170615203441266')
+ 
+# print(res.content)
+# 2) HTML 페이지 파싱 BeautifulSoup(HTML데이터, 파싱방법)
+# 2-1) BeautifulSoup 파싱방법
+soup = BeautifulSoup(res.content, 'html.parser')
+ 
+# 3) 필요한 데이터 검색
+title = soup.find('title')
+title2 = soup.find_all('title')
+ 
+# 4) 필요한 데이터 추출
+print(title.get_text())
+print(title2[0].get_text())
